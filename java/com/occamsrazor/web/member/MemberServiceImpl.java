@@ -1,8 +1,12 @@
 package com.occamsrazor.web.member;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class MemberServiceImpl implements MemberService{
 private Member[] members;
 private int count;
+
 public MemberServiceImpl() {
 	members = new Member[5];
 	count = 0;
@@ -41,7 +45,7 @@ public void update(Member member) {
 	for(int i=0; i<count; i++) {
 		if(member.getUserid().equals(members[i].getUserid())){
 			members[i].setPasswd(member.getPasswd());
-			
+			break;
 		}
 	}
 	
@@ -55,10 +59,21 @@ public void delete(Member member) {
 			members[count-1]= null;
 			count--;
 			
-			
+			break;
 		}
 	}
 	
 }
-
+@Override
+public boolean login(Member member) {
+	boolean ok =false;
+	for(int i=0; i<count; i++) {
+		if(member.getUserid().equals(members[i].getUserid())&&
+				member.getPasswd().equals(members[i].getPasswd())) {
+				ok =true;
+				break;
+		}
+}
+	return ok;
+ 	}
 }

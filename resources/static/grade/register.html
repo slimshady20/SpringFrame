@@ -73,33 +73,30 @@ footer {
    
 <h2> 홈페이지 </h2>
 <header>
-  <h2>Cities</h2>
+  <h2>점수 등록</h2>
 </header>
 
 <section>
   <nav>
     <ul>
-      <li><a id="a-first" href="#">Join</a></li>
-      <li><a id="a-second" href="index.html">Login</a></li>
-      <li><a id="a-third" href= "#">...</a></li>
       
     </ul>
   </nav>
   
   <article>
     <form action="#">
-    	<label>Name</label><br>
-    	<input id="name" type = "text"><br>
     	<label>ID</label><br>
 		<input id="userid" type = "text"><br>
-		<label>PassWord</label><br>
-		<input id="passwd" type = "text"><br>
-		<label>Ssn</label><br>
-		<input id= "ssn" type = "text"><br>
-		<label>Address</label><br>
-		<input id= "addr" type = "text"><br><br>
-		<input id= "Join-button" type="button" value="회원가입">
-		<input id= "Cancel-button" type="button" value="취소">
+		<label>Korean</label><br>
+		<input id="korean" type = "text"><br>
+		<label>English</label><br>
+		<input id= "english" type = "text"><br>  
+		<label>Math</label><br>
+		<input id= "math" type = "text"><br>
+		<label>Java</label><br>
+		<input id= "java" type ="text"><br>
+		<input id= "Register-button" type="button" value="점수 등록">
+		
 		
 	
     </form>
@@ -121,22 +118,25 @@ $('#a-third').click(function(){
 })
 $('#Join-button').click(function(){
 	//alert('입력된 이름: ' + $('#name').val())
-	let member = {name: $('#name').val(),   // JSON 
-	 userid: $('#userid').val(),
-	 passwd: $('#passwd').val(),
-	 ssn:	$('#ssn').val(),
-	 addr: $('#addr').val()}
+	
 	//	let name = $('#name')   //String name= new String() 이랑 똑같다.
 	// 
-	alert('입력된 주민번호: '+ member.ssn)
+//	alert('입력된 주민번호: '+ member.ssn)
 	$.ajax({
-		url: '/join',
+		url: '/grade/register', //url: 리소스에 접근할수있는
 		type: 'post',
-		data: JSON.stringify(member),
-		dataType: 'json',
-		contentType: 'application/json',
-		success: function(returnMember){
-			alert(returnMember.name + '님 회원가입 성공')
+		data: JSON.stringify({name : $('#name').val(),   // JSON 
+			 userid: $('#korean').val(),
+			 passwd: $('#english').val(),
+			 ssn:	$('#math').val(),
+			 addr: $('#java').val()}),
+		dataType: 'json',		// 항상 똑같
+		contentType: 'application/json',		//항상 똑같이
+		
+		
+		success: function(message){ // return member; 값이 이리로 넘어온것 이름은달라도 ㄱㅊ abc도가능
+			location.href ="grade/report.html"
+		
 		},
 		error: function(){
 			alert('회원가입 실패')
