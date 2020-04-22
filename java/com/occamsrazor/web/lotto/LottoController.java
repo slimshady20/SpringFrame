@@ -1,4 +1,4 @@
-package com.occamsrazor.web.grade;
+package com.occamsrazor.web.lotto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,22 +10,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.occamsrazor.web.util.Credit;
 import com.occamsrazor.web.util.Messenger;
-
 @RestController
-@RequestMapping("/grade")
-public class GradeController {
-	@Autowired GradeService gradeService;
-	@PostMapping("/register")
-	public Messenger register(@RequestBody Grade grade) {
-		int current = gradeService.count();
-		gradeService.add(grade);
-		return (gradeService.count() == current + 1) ? Messenger.SUCCESS : Messenger.FAIL;
+@RequestMapping("/lotto")
+public class LottoController {
+@Autowired	LottoService lottoService;
+	@PostMapping("/buy")
+	public Messenger lotto(@RequestBody Lotto lotto) {
+		int current = lottoService.count();
+		lottoService.add(lotto);
+		return (lottoService.count()== current+1)? Messenger.SUCCESS: Messenger.FAIL;
 	}
-	
-	@GetMapping("/record/{userid}")
-	public Credit record(@PathVariable String userid) {
-		return gradeService.detail(userid);
-	}
-	
-	
+
+@GetMapping("/number/{userid}")
+	public Credit number(@PathVariable String userid) {
+	System.out.println("userid" +userid);
+	Credit credit = null;
+	return credit.A;
+}
 }

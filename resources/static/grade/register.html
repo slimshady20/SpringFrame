@@ -70,8 +70,6 @@ footer {
 </style>
 </head>
 <body>
-   
-<h2> 홈페이지 </h2>
 <header>
   <h2>점수 등록</h2>
 </header>
@@ -79,73 +77,71 @@ footer {
 <section>
   <nav>
     <ul>
-      
+    
     </ul>
   </nav>
   
-  <article>
-    <form action="#">
-    	<label>ID</label><br>
-		<input id="userid" type = "text"><br>
-		<label>Korean</label><br>
-		<input id="korean" type = "text"><br>
-		<label>English</label><br>
-		<input id= "english" type = "text"><br>  
-		<label>Math</label><br>
-		<input id= "math" type = "text"><br>
-		<label>Java</label><br>
-		<input id= "java" type ="text"><br>
-		<input id= "Register-button" type="button" value="점수 등록">
-		
-		
-	
-    </form>
+   <article>
+   <form action="#">
+   	<label>ID </label> <br>
+   	<input id="userid" type="text"/> <br>
+   	<label>Korean</label><br>
+   	<input id="korean" type="text"/><br>
+   	<label>English</label><br>
+   	<input id="english" type="text"/><br>
+   	<label>Math</label><br>
+   	<input id="math" type="text"><br>
+   	<label>Java</label><br>
+   	<input id="java" type="text"><br><br>
+   	<input id="register_button" type="button" value="점수 등록">
+   	<input id="credit_button" type="button" value="학점 보기">
+   </form>
+   <div id="result"></div>
   </article>
 </section>
 
 <footer>
   <p>Footer</p>
 </footer>
-    <script type = "text/javascript">
-$('#a-first').click(function(){	 		// $('#a-first')이 DOM
-	alert('London 클릭')
-})
-$('#a-second').click(function(){
-	alert('Paris 클릭')
-})
-$('#a-third').click(function(){
-	alert('Tokyo 클릭')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-})
-$('#Join-button').click(function(){
-	//alert('입력된 이름: ' + $('#name').val())
-	
-	//	let name = $('#name')   //String name= new String() 이랑 똑같다.
-	// 
-//	alert('입력된 주민번호: '+ member.ssn)
+<script>
+$('#register_button').click(e =>{
+	e.preventDefault()
+	$('#result').html('')
 	$.ajax({
-		url: '/grade/register', //url: 리소스에 접근할수있는
+		url: '/grade/register',
 		type: 'post',
-		data: JSON.stringify({name : $('#name').val(),   // JSON 
-			 userid: $('#korean').val(),
-			 passwd: $('#english').val(),
-			 ssn:	$('#math').val(),
-			 addr: $('#java').val()}),
-		dataType: 'json',		// 항상 똑같
-		contentType: 'application/json',		//항상 똑같이
+		data: JSON.stringify({userid : $('#userid').val(),
+			korean : $('#korean').val(),
+			english : $('#english').val(),
+			math : $('#math').val(),
+			java : $('#java').val()}),
+		dataType: 'json',
+		contentType: 'application/json',
 		
-		
-		success: function(message){ // return member; 값이 이리로 넘어온것 이름은달라도 ㄱㅊ abc도가능
-			location.href ="grade/report.html"
-		
+		success : d => {
+			alert(d)
 		},
-		error: function(){
-			alert('회원가입 실패')
+		error : (req, x, err) =>{
+			alert(req.status + "\n" + req.responseText + "\n" + err)
 		}
-		})
+	})
 })
-$('#Cancel-button').click(function(){
-	alert('취소')
-})	
-    </script>
+$('#credit_button').click( e => {
+	e.preventDefault()
+	$.ajax({
+		url : '/grade/record/'+$('#userid').val(),
+		type : 'get',
+		dataType: 'json',
+		contentType: 'application/json',
+		success : d => {
+			alert(d)
+		},
+		error : (req, x, err) =>{
+			alert(req.status+'\n'+req.responseText+'\n'+err)
+		}
+	})
+	
+})
+</script>
 </body>
 </html>

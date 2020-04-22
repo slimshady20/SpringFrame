@@ -80,7 +80,7 @@ footer {
   <nav>
     <ul>
       <li><a id="a-first" href="#">Join</a></li>
-      <li><a id="a-second" href="index.html">Login</a></li>
+      <li><a id="a-second" href="../index.html">Login</a></li>
       <li><a id="a-third" href= "#">...</a></li>
       
     </ul>
@@ -110,21 +110,14 @@ footer {
   <p>Footer</p>
 </footer>
     <script type = "text/javascript">
-$('#a-first').click(function(){	 		// $('#a-first')이 DOM
-	alert('London 클릭')
-})
-$('#a-second').click(function(){
-	alert('Paris 클릭')
-})
-$('#a-third').click(function(){
-	alert('Tokyo 클릭')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-})
-$('#Join-button').click(function(){
+$('#Join-button').click(e =>{
+	e.preventDefault()
 	//alert('입력된 이름: ' + $('#name').val())
 	
 	//	let name = $('#name')   //String name= new String() 이랑 똑같다.
 	// 
 //	alert('입력된 주민번호: '+ member.ssn)
+
 	$.ajax({
 		url: '/member/join', //url: 리소스에 접근할수있는
 		type: 'post',
@@ -137,22 +130,26 @@ $('#Join-button').click(function(){
 		contentType: 'application/json',		//항상 똑같이
 		
 		
-		success: function(message){ // return member; 값이 이리로 넘어온것 이름은달라도 ㄱㅊ abc도가능
-			if(message === 'SUCCESS'){ //string이라 === 3개씀
+		success: d=> { // return member; 값이 이리로 넘어온것 이름은달라도 ㄱㅊ abc도가능
+			if(d === 'SUCCESS'){ //string이라 === 3개씀
 				location.href="../index.html"		
 			}else{
 				location.href="join.html"
 			}
 		
 		},
-		error: function(){
-			alert('회원가입 실패')
+		error: (request,status,error)=>{
+			alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error)
 		}
-		})
+		
+	})
+	
+		
 })
-$('#Cancel-button').click(function(){
-	alert('취소')
-})	
+$('#cancel-button').click(e => {
+	e.preventDefault()
+	alert('취소 버튼 클릭')
+})
     </script>
 </body>
 </html>

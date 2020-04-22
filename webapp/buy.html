@@ -70,97 +70,73 @@ footer {
 </style>
 </head>
 <body>
-   
-<h2> 홈페이지 </h2>
 <header>
-  <h2>Cities</h2>
+  <h2>로또 구매</h2>
 </header>
 
 <section>
   <nav>
     <ul>
-      <li><a id="join_a">Join</a></li>
-      <li><a id="login_a">Login</a></li>
-            
+    
     </ul>
   </nav>
   
   <article>
-    <form action="#">
-    	<label>ID</label><br>
-		<input id="userid" type = "text"><br>
-		<label>PassWord</label><br>
-		<input id="passwd" type = "text"><br>
-		<input id= "Login-button" type="button" value="로그인">
-		<input id= "Cancel-button" type="button" value="취소"> 
-	
-    </form>
+   <form action="#">
+   	<label>ID </label> <br>
+   	<input id="userid" type="text"/> <br>
+   	<label>로또 번호 입력(,로 분리해주세요)</label><br>
+   	<input id="lotto" type="text"/><br>
+   	
+   	<input id="buy_button" type="button" value="로또 구매">
+   	<input id="result_button" type="button" value="당첨 결과">
+   </form>
+   <div id="result"></div>
   </article>
 </section>
 
 <footer>
   <p>Footer</p>
 </footer>
-    <script type = "text/javascript">
-$('#join_a').css('cursor', 'wait')    
-$('#a-first').click(e =>{
+<script>
+$('#buy_button').click(e => {
 	e.preventDefault()
-})
-$('#a-second').click(e =>{
-	e.preventDefault()
-})
-$('#a-third').click(e =>{
-	e.preventDefault()
-})
-$('#join_a')
-	.css('cursor', 'pointer')
-	.click(e =>{
-	e.preventDefault()
-	location.href= "member/join.html"
-})
-$('#login_a')
-	.css('cursor', 'pointer')
-	.click(e =>{
-	e.preventDefault()
-	location.href= "index.html"
-})
-
-
-
-$('#Login-button').click(e =>{
-	e.preventDefault()
-$.ajax({
-		url:'/member/login',  //json 구조 key : value
-		type: 'post',
-		data: JSON.stringify({userid: $('#userid').val(),
-							  passwd: $('#passwd').val()}),
-		dataType : 'json',
-		contentType: 'application/json',
-		success: d=> {
-			if(d==='SUCCESS'){
-				location.href= "grade/register.html"		
-			}else{
-				alert('다시 로그인 해주세요.')
-				location.href="index.html"
-				
-			}
+	$.ajax({
+		url:'/lotto/buy',
+		type:'post',
+		data: JSON.stringify({
+			userid: $('#userid').val(),
+			number: $('#number').val()}),
+		dataType: 'json',
+		contentType:'application/json',
+		
+		success : buy =>{
+			alert(buy)
 		},
-		error: (req,x,err)=> {
-			alert("code:"+req.status+"\n"+"message:"+req.responseText+"\n"+"error:"+err)
+		error : (req, x, err) =>{
+			alert(req.status + "\n" + req.responseText + "\n" + err)
 		}
-		})
+	
+		
+		
 	})
-$('#Cancel-button').click(e=>{
-$.ajax({
-	url: '',
-	type: '',
-	data: {},
-	dataType: 'json',
-	contentType: 'application/json',
-	success: e=>{},
-	error: e=>{}
 })
-})	
-    </script>
+$('#result_button').click(e => {
+	e.preventDefault()
+	$.ajax({
+		url: '/lotto/number/'+ $('#userid').val(),
+		type:'get',
+	//	data:'',
+		dataType: 'json',
+		contentType: 'application/json',
+		success : d=>{
+			alert(d)
+		},
+		error : (req, x, err) =>{
+			alert(req.status + "\n" + req.responseText + "\n" + err)
+		}
+	})
+})
+</script>
 </body>
 </html>
