@@ -1,8 +1,10 @@
 package com.occamsrazor.web.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -59,14 +61,14 @@ public class MemberController {
 
 		return returnCount;
 	}
-	@GetMapping("/update")
+	@PutMapping("/update")
 	public Member update(@RequestBody Member member) {
 		Member updateMember = new Member();
 		memberService = new MemberServiceImpl();
 
 		return updateMember;
 	}
-	@GetMapping("/delete")
+	@DeleteMapping("/delete")
 	public Member delete(@RequestBody Member member) {
 		Member deleteMember = new Member();
 		memberService = new MemberServiceImpl();

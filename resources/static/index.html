@@ -73,14 +73,16 @@ footer {
    
 <h2> 홈페이지 </h2>
 <header>
-  <h2>Cities</h2>
+  <h2>어서오십시오</h2>
 </header>
 
 <section>
   <nav>
     <ul>
-      <li><a id="join_a">Join</a></li>
-      <li><a id="login_a">Login</a></li>
+      <li><a id="join_a">관리자 등록</a></li>
+      <li><a id="login_a">관리자 접속</a></li>
+      <li><a id="signup_a">사용자 가입</a></li>
+      <li><a id="signin_a">사용자 로그인</a></li>
             
     </ul>
   </nav>
@@ -102,7 +104,7 @@ footer {
   <p>Footer</p>
 </footer>
     <script type = "text/javascript">
-$('#join_a').css('cursor', 'wait')    
+   
 $('#a-first').click(e =>{
 	e.preventDefault()
 })
@@ -124,7 +126,18 @@ $('#login_a')
 	e.preventDefault()
 	location.href= "index.html"
 })
-
+ $('#signup_a')
+    .css('cursor', 'zoom-in')
+    .click(e => {
+    	e.preventDefault()
+    	location.href= "user/signup.html"
+    })
+ $('#signin_a')
+ 	.css('cursor', 'zoom-in')
+ 	.click(e => {
+ 		e.preventDefault()
+ 		location.href= "user/signin.html"
+ 	})
 
 
 $('#Login-button').click(e =>{

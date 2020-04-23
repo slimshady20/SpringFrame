@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.occamsrazor.web.util.Credit;
 import com.occamsrazor.web.util.Messenger;
-
 @RestController
 @RequestMapping("/grade")
 public class GradeController {
@@ -22,10 +21,9 @@ public class GradeController {
 		return (gradeService.count() == current + 1) ? Messenger.SUCCESS : Messenger.FAIL;
 	}
 	
-	@GetMapping("/record/{userid}")
-	public Credit record(@PathVariable String userid) {
+	@GetMapping("/report/{userid}")
+	public Credit report(@PathVariable String userid) {
 		return gradeService.detail(userid);
 	}
-	
 	
 }
