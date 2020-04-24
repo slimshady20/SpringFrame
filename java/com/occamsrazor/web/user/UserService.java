@@ -5,7 +5,8 @@ public interface UserService {
 	public User[] list();
 	public User detail(String userid);
 	public int count();
-	public void  update(User user);
-	public void  delete(User user);
 	public User login(User user);
+	public boolean  update(User user);
+	//public void  delete(User user);
+	public boolean remove(String userid);
 }

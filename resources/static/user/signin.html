@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<title>Bit programming academy</title>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -123,6 +124,7 @@ $.ajax({
 	contentType: 'application/json',
 	success: d => {
 		if(d.messenger === 'SUCCESS'){
+			sessionStorage.setItem('userid', d.user.userid)
 			location.href ='mypage.html'
 		}else{
 			location.href = 'signin.html'

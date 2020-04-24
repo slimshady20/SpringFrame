@@ -131,8 +131,8 @@ $('#signup-button')
 		dataType: 'json',
 		contentType: 'application/json',
 			
-		success: d=>	{
-				if(d==='SUCCESS'){
+		success: signup=>	{
+				if(signup==='SUCCESS'){
 					location.href="signin.html"
 				}else{
 					location.href="signup.html"

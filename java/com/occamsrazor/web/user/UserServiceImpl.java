@@ -24,14 +24,12 @@ public int count() {
 	return map.size();
 }
 @Override
-public void update(User user) {
+public boolean update(User user) {
 	
+	map.replace(user.getUserid(), user);
+	return true;
 }
-@Override
-public void delete(User user) {
-	// TODO Auto-generated method stub
-	
-}
+
 
 @Override
 public User[] list() {
@@ -46,6 +44,7 @@ public User login(User user) {
 		User u = detail(user.getUserid());
 		if(user.getPasswd().equals(u.getPasswd())) {
 			return u;
+			
 		}
 	}
 	return returnUser;
@@ -53,6 +52,15 @@ public User login(User user) {
 
 @Override
 public User detail(String userid) {
-	return (User) map.get(userid);
+	System.out.println("서비스 detail 들어온 Id::: "+ userid);
+	User t =(User) map.get(userid);
+	System.out.println("===============>"+ t);
+	return t;
+}
+
+@Override
+public boolean remove(String userid) {
+	map.remove(userid);
+	return true;
 }
 }
