@@ -116,7 +116,7 @@
           alert(' 수정 전 정보 >>>>>>>> '+name +','+addr+','+passwd)
           
           $('#cancel_button').click(e => {
-        	  e.preventDefault()
+        	  e.preventDefault() // 람다식 XML말고 JSON으로 불러올려고
         	  location.href = 'mypage.html'
      
           })

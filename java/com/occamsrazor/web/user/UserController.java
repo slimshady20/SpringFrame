@@ -1,6 +1,7 @@
 package com.occamsrazor.web.user;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.occamsrazor.web.grade.GradeService;
+
 import com.occamsrazor.web.util.Messenger;
 
 @RestController
@@ -24,9 +25,11 @@ public class UserController {
 	public Messenger signup(@RequestBody User user) {
 		System.out.println("userid"+ user);
 		int count = userService.count();
-		userService.add(user);
-		System.out.println(count);
-		return (userService.count()== count+1)? Messenger.SUCCESS: Messenger.FAIL;
+		userService.saveFile(user);
+		//userService.add(user);
+		//System.out.println(count);
+		//return (userService.count()== count+1)? Messenger.SUCCESS: Messenger.FAIL;
+		return Messenger.SUCCESS;
 	}
 	@PostMapping("/login")
 	public Map<String, Object> login(@RequestBody User user) {
@@ -52,9 +55,14 @@ public class UserController {
 		return (userService.update(user))? Messenger.SUCCESS: Messenger.FAIL;
 	}
 	@DeleteMapping("/remove/{userid}")
-	public Messenger remove(@PathVariable String userid) {
+	public Messenger remove(@PathVariable String userid) {  //pathvariable는객체를 가져온다 (userid=)
 	System.out.println("delete 정보:::"+userid);
 	return (userService.remove(userid)) ? Messenger.SUCCESS: Messenger.FAIL;
+	}
+	@GetMapping("/list")
+	public List<User> list(){
+		// return userService.list();
+		return userService.readFile();
 	}
 }
 
