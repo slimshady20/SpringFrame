@@ -16,5 +16,6 @@ public interface UserService {
 	public boolean remove(String userid);
 
 	public List<User> list();
-
+	
+	public boolean checkid(String userid);
 }

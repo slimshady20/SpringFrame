@@ -23,10 +23,10 @@ public class UserController {
 	@Autowired UserService userService;
 	@PostMapping("/signup")
 	public Messenger signup(@RequestBody User user) {
-		System.out.println("userid"+ user);
+		System.out.println("userid "+ user);
 		int count = userService.count();
 	//	userService.saveFile(user);
-		//userService.add(user);
+		userService.add(user);
 		//System.out.println(count);
 		return (userService.count()== count+1)? Messenger.SUCCESS: Messenger.FAIL;
 	//	return Messenger.SUCCESS;

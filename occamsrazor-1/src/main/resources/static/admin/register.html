@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<title>비트 개발자</title>
+<head>
+<meta charset="UTF-8">
+<title></title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+.border_black{border:1px solid black;}
+.width_full{width:'100%';height:'100%'}
+.center{margin: 0 auto}
+html, body{width: 100%; height:100%;overflow:hidden; min-height: 100%;}
+</style>
+</head>
+<body>
+
+<div>
+<table id="workers">
+	<tr>
+	<td id ="admin" colspan="3"  style="text-align: center">관리자 등록</td>
+	</tr>
+	
+	<tr>
+		<td id= "photo" rowspan="4">
+		<img src="https://blogsaays-com-3vkgf8gqdp8entcca1.netdna-ssl.com/wp-content/uploads/2014/02/no-user-profile-picture-whatsapp.jpg">
+		</td>
+		<td id= "name">이름</td>
+		<td><input type="text" value="" id="serch" class="searchInput" placeholder="이름을 입력해주세요." style= "width: 400px; height: 50px;"></td>
+	</tr>
+	<tr>
+		<td id= "position">직급</td>
+		<td><input type="text" value="" id="serch" class="searchInput" placeholder="직급을 입력해주세요." style= "width: 400px; height: 50px;"></td>
+	</tr>
+	<tr>
+		<td id ="email">이메일</td>
+		<td ><input type="text" value="" id="serch" class="searchInput" placeholder="이메일을 입력해주세요." style= "width: 400px; height: 50px;"></td>
+	</tr>
+	<tr>
+		<td id= "phoneNumber">전화번호</td>
+		<td><input type="text" value="" id="serch" class="searchInput" placeholder="전화번호를 입력해주세요." style= "width: 400px; height: 50px;"></td>
+	</tr>
+	<tr>
+	<td colspan="2"><input id ="signup" type= "button" value= "등록"> </td>
+	<td><input id= "cancel" type= "button" value= "취소"></td>
+	
+	</tr>
+	
+</table>
+    </div>
+    
+ 
+    	
+<script>
+$('#admin').addClass('border_black center')
+$('#photo').addClass('border_black center')
+$('#workers').addClass('border_black center')
+$('#name').addClass('border_black center')
+$('#position').addClass('border_black center')
+$('#email').addClass('border_black center')
+$('#phoneNumber').addClass('border_black center')
+$('#signup').css({ width: '100%', height: '50px' })
+$('#cancel').css({ width: '100%', height: '50px' })
+</script>
+    
+</body>
+</html>
