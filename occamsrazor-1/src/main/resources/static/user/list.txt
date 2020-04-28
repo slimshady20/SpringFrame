@@ -1,0 +1,8 @@
+a,a,a,a,a
+s,s,s,s,s
+안되는,지 ,왜,모르,겠습니다
+a,a,Jayden,a,a
+s,s,Jayden,s,s
+as,a,Jayden,a,a
+a,a,a,a,a
+a,a,a,a,a
