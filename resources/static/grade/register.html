@@ -132,6 +132,7 @@ $('#credit_button').click( e => {
 	$.ajax({
 		url : '/grade/report/'+$('#userid').val(),
 		type : 'get',
+		data: '',
 		dataType: 'json',
 		contentType: 'application/json',
 		success : d => {

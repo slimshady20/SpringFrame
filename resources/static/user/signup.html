@@ -91,6 +91,7 @@ footer {
     	<input id="name" type = "text"><br>
     	<label>ID</label><br>
 		<input id="userid" type = "text"><br>
+		<input id="checkid" type= "button" value=" 아이디 중복확인"><br><br>
 		<label>PassWord</label><br>
 		<input id="passwd" type = "text"><br>
 		<label>Ssn</label><br>
@@ -149,6 +150,22 @@ $('#Cancel-button')
 .click(e=>{
 	e.preventDefault()
 	location.href="../index.html"
+})
+$('#checkid').click(e=>{
+	e.preventDefault()
+	$.getJSON('/user/checkid/'+$('#userid').val(), d=>{
+		alert((d ==='SUCCESS')? '아이디를 사용하실 수 있습니다.': '아이디 중복입니다.')
+//		if( d=== 'SUCCESS'){
+	//	alert('아이디 중복입니다.')
+//	}else{
+	//	alert('아이디를 사용하실 수 있습니다.')
+//	}
+	// 3항 연산자로 바꾸면  let str = d( ==='SUCCESS')? '아이디 중복입니다.': '아이디를 사용하실 수 있습니다'
+	//						alert(str)
+	//				즉 alert(d( ==='SUCCESS')? '아이디 중복입니다.': '아이디를 사용하실 수 있습니다')
+	
+	})
+	
 })
 </script>
 </body>

@@ -19,5 +19,5 @@ public interface UserService {
 	
 	public void saveFile(User user);
 	public List<User> readFile();
-
+	public boolean checkid(String userid);
 }

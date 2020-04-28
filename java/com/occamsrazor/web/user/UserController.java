@@ -64,5 +64,9 @@ public class UserController {
 		// return userService.list();
 		return userService.readFile();
 	}
+	@GetMapping("/checkid/{userid}")
+	public Messenger checkid(@PathVariable String userid) {
+		return userService.checkid(userid)? Messenger.SUCCESS: Messenger.FAIL;
+	}
 }
 
