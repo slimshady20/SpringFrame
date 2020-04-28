@@ -12,7 +12,7 @@
 	<artifactId>wen</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>occamsrazor-1</name>
+	<name>occamsrazor</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
