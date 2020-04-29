@@ -18,7 +18,43 @@ import org.springframework.web.bind.annotation.RestController;
 import com.occamsrazor.web.util.Messenger;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
+public class UserController{
+	@Autowired UserService userSerivce;
+	
+	@PostMapping("")
+	public Messenger post(@RequestBody User user){
+		userSerivce.register(user);
+	
+		return Messenger.SUCCESS;
+	}
+	@GetMapping("")
+	public List<User> list(){
+		
+		return userSerivce.findAll();
+	}
+	@GetMapping("/{userid}")
+	public User detail(@PathVariable String userid ) {
+		
+		return userSerivce.findOne(userid);
+	}
+	@PutMapping("/{userid}")
+	public Messenger update(@RequestBody User user){
+		userSerivce.modify(user);
+		return Messenger.SUCCESS;
+	}
+	@DeleteMapping("/{userid}")
+	public Messenger delete(@RequestBody User user) {
+		userSerivce.remove(user);
+		return Messenger.SUCCESS;
+	}
+}
+
+
+
+
+
+/*
 public class UserController {
 	@Autowired UserService userService;
 	@PostMapping("/signup")
@@ -28,8 +64,8 @@ public class UserController {
 	//	userService.saveFile(user);
 		userService.add(user);
 		//System.out.println(count);
-		return (userService.count()== count+1)? Messenger.SUCCESS: Messenger.FAIL;
-	//	return Messenger.SUCCESS;
+	//	return (userService.count()== count+1)? Messenger.SUCCESS: Messenger.FAIL;
+		return Messenger.SUCCESS;
 	}
 	@PostMapping("/login")
 	public Map<String, Object> login(@RequestBody User user) {
@@ -61,4 +97,29 @@ public class UserController {
 	}
 	
 }
-
+  
+  public class UserController {
+	@Autowired UserService userService;
+	@PostMapping("")
+	public Messenger signup(@RequestBody User user) {
+		return Messenger.SUCCESS;
+	}
+	@GetMapping("")
+	public List<user> list(){
+	return null;
+	}
+	@GetMapping("/{userid}")
+	public Admin detail(){
+		return null;
+	}
+	@PutMapping("/{userid}")
+	public Messenger put(@RequestBody User user) {
+		return Messenger.SUCCESS
+		}
+	@DeleteMapping("/{userid}")
+	public Messenger delete(@RequestBody User user){
+	return Messenger.SUCCESS
+	}
+	
+ 
+	*/

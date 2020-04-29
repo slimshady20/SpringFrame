@@ -4,18 +4,15 @@ import java.util.List;
 
 public interface UserService {
 
-	public void add(User user);
+public void register(User user);
 
-	public int count();
+public 	List<User> findAll();
 
-	public User login(User user);
-	public User detail(String userid);
+public User findOne(String userid);
 
-	public boolean update(User user);
+public void modify(User user);
 
-	public boolean remove(String userid);
+public void remove(User user);
 
-	public List<User> list();
 	
-	public boolean checkid(String userid);
 }

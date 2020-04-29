@@ -17,7 +17,16 @@
 .border_black{border:1px solid black;}
 .width_full{width:'100%';height:'100%'}
 .center{margin: 0 auto}
-div{padding-top: 30px;}
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
 </style>
 </head>
 <body>
@@ -29,19 +38,23 @@ div{padding-top: 30px;}
 	<img src="http://www.cdc.go.kr/cdc/img/main/h1_logo.png">
 	<td colspan= "2">
 	<input type="text" name="kwd" value="" id="serch" class="searchInput" placeholder="검색어를 입력해주세요." style= "width: 400px; height: 40px; border: 2px solid #21a089; padding-left:50px">
-	<a href="#serch" onclick="clickSearch();">
-	</a>
+	
+	<button id="search" class="button" onclick="clickSearch();">검색</button>
+	
 	
 	</td>
 	<td>
-	<input id="register_button" type="button" value="로그인">
-	<input id="signup_button" type="button" value="회원가입">
+	<button id="signin_button" class="button">로그인</button>
+	<button id="signup_button" class="button">회원가입</button>
+	<button id="admin_login" class="button">관리자 접속</button>
+	<button id="register_a" class="button">관리자 등록</button>
 	</td>
 	
 	</tr>
 	
 	<tr>
-	<td id= "second" colspan= "4">asdasdasdasdsadadsadsadasd
+	<td id= "second" colspan= "4">
+	<a href="http://www.cdc.go.kr/#serch" onclick="clickSearch();">공식 홈페이지 바로가기 클릭</a>
 	</td>
 	</tr>
 	
@@ -55,15 +68,15 @@ div{padding-top: 30px;}
 		
 	<td id= "forth">
 	<img src="http://www.cdc.go.kr/cdc/img/main/visual_default_05.jpg" style= "padding-top: 30px;">
-	<h3>미세먼지 건강 수칙</h3>
+	<h3 style ="border-bottom: 1px solid green;" >미세먼지 건강 수칙</h3>
 	</td>
 	<td><img src="http://www.cdc.go.kr/cdc/img/main/visual_default_12.png" style= "padding-top: 30px;">
-	<h3>법정 감염병 분류 체계 개편</h3>
+	<h3 style ="border-bottom: 1px solid blue;">법정 감염병 분류 체계 개편</h3>
 	 </td>
 	<td><img src="http://www.cdc.go.kr/cdc/img/main/visual_default_10.jpg" style= "padding-top: 30px;">
-	<h3>인플루엔자</h3>
+	<h3 style ="border-bottom: 1px solid pink;">인플루엔자</h3>
 	</td>
-	<td><img src="http://www.cdc.go.kr/cdc/img/main/visual_default_08.jpg" style= "padding-top: 30px;">
+	<td style ="border-bottom: 1px solid green;"><img src="http://www.cdc.go.kr/cdc/img/main/visual_default_08.jpg" style= "padding-top: 30px; ">
 	<h3>액상형 전자담배관련 폐손상</h3>
 	</td>
 	
@@ -80,10 +93,23 @@ $('#third')
 $('#forth')	
 
 
-$('#register_button').click(e=>{
+$('#signin_button')
+.click(e=>{
+	e.preventDefault();
+	location.href="/user/signin.html"
+})
+$('#signup_button')
+.click(e=>{
+	e.preventDefault();
+	location.href= "/user/signup.html"
+})
+$('#register_a')
+
+.click(e=>{
 	e.preventDefault();
 	location.href="/admin/register.html"
 })
+
 </script>
     
 </body>

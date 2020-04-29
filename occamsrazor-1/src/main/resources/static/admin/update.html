@@ -11,7 +11,6 @@
 .width_full{width:'100%';height:'100%'}
 .center{margin: 0 auto}
 html, body{width: 100%; height:100%;overflow:hidden; min-height: 100%;}
-
 </style>
 </head>
 <body>
@@ -27,22 +26,22 @@ html, body{width: 100%; height:100%;overflow:hidden; min-height: 100%;}
 		<img src="https://blogsaays-com-3vkgf8gqdp8entcca1.netdna-ssl.com/wp-content/uploads/2014/02/no-user-profile-picture-whatsapp.jpg">
 		</td>
 		<td id= "name">이름</td>
-		<td><input type="text" value="" id="nameText" class="nameText" placeholder="이름을 입력해주세요." style= "width: 400px; height: 50px;"></td>
+		<td id="nameText"><input type="text" value="" id="serch" class="searchInput" placeholder="이름을 입력해주세요." style= "width: 400px; height: 50px;"></td>
 	</tr>
 	<tr>
 		<td id= "position">직급</td>
-		<td><input type="text" value="" id="positionText" class="searchInput" placeholder="직급을 입력해주세요." style= "width: 400px; height: 50px;"></td>
+		<td id="positionText"><input type="text" value="" id="serch" class="searchInput" placeholder="직급을 입력해주세요." style= "width: 400px; height: 50px;"></td>
 	</tr>
 	<tr>
 		<td id ="email">이메일</td>
-		<td><input type="text" value="" id="emailText" class="searchInput" placeholder="이메일을 입력해주세요." style= "width: 400px; height: 50px;"></td>
+		<td id="emailText"><input type="text" value="" id="serch" class="searchInput" placeholder="이메일을 입력해주세요." style= "width: 400px; height: 50px;"></td>
 	</tr>
 	<tr>
 		<td id= "phoneNumber">전화번호</td>
-		<td><input type="text" value="" id="PhoneNumberText" class="searchInput" placeholder="전화번호를 입력해주세요." style= "width: 400px; height: 50px;"></td>
+		<td id="PhoneNumberText"><input type="text" value="" id="serch" class="searchInput" placeholder="전화번호를 입력해주세요." style= "width: 400px; height: 50px;"></td>
 	</tr>
 	<tr>
-	<td colspan="2"><input id ="admin_register" type= "button" value= "등록"> </td>
+	<td colspan="2"><input id ="admin_update" type= "button" value= "수정하기"> </td>
 	<td>
 	<input id= "cancel-button" type= "button" value= "취소"></td>
 	
@@ -65,7 +64,7 @@ $('#email').addClass('border_black center')
 $('#emailText').addClass('border_black center')
 $('#phoneNumber').addClass('border_black center')
 $('#PhoneNumberText').addClass('border_black center')
-$('#admin_register').css({ width: '100%', height: '50px' })
+$('#signup').css({ width: '100%', height: '50px' })
 $('#cancel-button').css({ width: '100%', height: '50px' })
 
 $('#cancel-button').click(e=>{
@@ -74,22 +73,19 @@ $('#cancel-button').click(e=>{
 })
 // employNumber,passwd,name,position,profile,email,phoneNumber,registerDate;
 
-$('#admin_register').click(e=> {
+$('#admin_update').click(e=>{
 	e.preventDefault()
 	$.ajax({
-		url:'/admins',
-		type:'post',
-		data: JSON.stringify({
-			name :$('#nameText').val(),
-			position :$('#positionText').val(),
-			email	:$('#emailText').val(),
-			phoneNumber	:$('#phoneNumberText').val()
-			}),
+		url:'/admins'+ '1234',
+		type:'put',
+		data:{
+			name	:$('#name').val(),
+			position	:$('#position').val(),
+			email	:$('#email').val(),
+			phoneNumber	:$('#phoneNumber').val()},
 		dataType:'json',
 		contentType:'application/json',
-		success: d=> {
-			location.href="access.html"
-		},
+		success: d=>{},
 		error: (r,x,m)=>{r.status}
 	
 	})
