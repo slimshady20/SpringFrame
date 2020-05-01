@@ -46,7 +46,7 @@
 	<td>
 	<button id="signin_button" class="button">로그인</button>
 	<button id="signup_button" class="button">회원가입</button>
-	<button id="admin_login" class="button">관리자 접속</button>
+	<button id="access_a" class="button">관리자 접속</button>
 	<button id="register_a" class="button">관리자 등록</button>
 	</td>
 	
@@ -108,6 +108,21 @@ $('#register_a')
 .click(e=>{
 	e.preventDefault();
 	location.href="/admin/register.html"
+})
+$('#access_a').click(e=>{
+	$.ajax({
+		url:'/admin/',
+		type:'',
+		data: JSON.stringify({
+			
+		})
+		dataType:'json',
+		contentType:'application/json',
+		success: d=>{
+			location.href=""
+		},
+		error: (s,x,r){}
+	})
 })
 
 </script>
