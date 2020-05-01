@@ -15,7 +15,7 @@ public interface AdminService {
 	public void modify(Admin admin);
 
 	public void remove(Admin admin);
-//3_di
+
 	
 	
 }
