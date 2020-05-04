@@ -25,32 +25,45 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService{
 	@Autowired UserDao userDao;
 	
-	@Override
-	public void register(User user) {
-		userDao.insert(user);
-		
-	}
 
+	
 	@Override
 	public List<User> findAll() {
 		
 		return userDao.selectAll();
 	}
 
+
+
+	@Override
+	public void register(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 	@Override
 	public User findOne(String userid) {
-		
-		return userDao.selectOne();
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+
 
 	@Override
 	public void modify(User user) {
-		userDao.update(user);
+		// TODO Auto-generated method stub
 		
 	}
 
+
+
 	@Override
 	public void remove(User user) {
-		userDao.delete(user);
-}
+		// TODO Auto-generated method stub
+		
+	}
+
+
 }

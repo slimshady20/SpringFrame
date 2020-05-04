@@ -7,11 +7,27 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <style>
-.border_black{border:1px solid black;}
-.width_full{width:'100%';height:'100%'}
-.center{margin: 0 auto}
-html, body{width: 100%; height:100%;overflow:hidden; min-height: 100%;}
+html,
+    body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        min-height: 100%;
+    }
 
+    .border_black {
+        border: 1px solid black;
+    }
+
+    .center {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .width_full {
+        width: '100%';
+        height: '100%'
+    }
 </style>
 </head>
 <body>
@@ -24,7 +40,7 @@ html, body{width: 100%; height:100%;overflow:hidden; min-height: 100%;}
 	
 	<tr>
 		<td id= "photo" rowspan="4">
-		<img src="https://blogsaays-com-3vkgf8gqdp8entcca1.netdna-ssl.com/wp-content/uploads/2014/02/no-user-profile-picture-whatsapp.jpg">
+		<img src="https://blogsaays-com-3vkgf8gqdp8entcca1.netdna-ssl.com/wp-content/uploads/2014/02/no-user-profile-picture-whatsapp.jpg"  height: 300px;>
 		</td>
 		<td id= "name">이름</td>
 		<td><input type="text" value="" id="nameText" class="nameText" placeholder="이름을 입력해주세요." style= "width: 400px; height: 50px;"></td>
@@ -44,7 +60,7 @@ html, body{width: 100%; height:100%;overflow:hidden; min-height: 100%;}
 	<tr>
 	<td colspan="2"><input id ="admin_register" type= "button" value= "등록"> </td>
 	<td>
-	<input id= "cancel-button" type= "button" value= "취소"></td>
+	<input id= "admin_cancel" type= "button" value= "취소"></td>
 	
 	</tr>
 	

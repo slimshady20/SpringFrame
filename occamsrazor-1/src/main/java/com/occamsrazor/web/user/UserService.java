@@ -6,7 +6,7 @@ public interface UserService {
 
 public void register(User user);
 
-public 	List<User> findAll();
+	List<User> findAll();
 
 public User findOne(String userid);
 
