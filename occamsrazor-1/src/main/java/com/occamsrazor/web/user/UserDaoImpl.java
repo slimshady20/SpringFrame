@@ -70,6 +70,19 @@ public class UserDaoImpl implements UserDao {
 	
 		return list;
 	}
+
+	@Override
+	public User selectOne(String userid) {
+		List<User> list = selectAll();	
+		User findUser = null;
+		for(User u : list) {//향상된 for 문
+			if(userid.equals(u.getUserid())) {
+				findUser =u;
+				break;
+			}
+		}
+		return findUser;
+	}
 	
 
 

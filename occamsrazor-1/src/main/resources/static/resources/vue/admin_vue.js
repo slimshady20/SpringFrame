@@ -1,10 +1,9 @@
 "use Strict"
 
-const adminVue ={
+var adminVue ={
 		join: ()=>{
 			return `  <table id="kcdc">
         <tr id="tr_1">
-            
             <td colspan="2">
                 <h1>관리자 등록</h1>
             </td>
@@ -68,41 +67,9 @@ const adminVue ={
 		<input id="passwd" type = "text"><br>
 			</form>
 				</article>`
-		},
-		detail :()=>{
-			return `<table id="workers">
-	<tr>
-	<td id ="admin" colspan="3"  style="text-align: center; padding-top: 10px; font-size:30px; font-weight:bold">관리자 정보</td>
-	</tr>
-	
-	<tr>
-		<td id= "photo" rowspan="4">
-		<img src="https://blogsaays-com-3vkgf8gqdp8entcca1.netdna-ssl.com/wp-content/uploads/2014/02/no-user-profile-picture-whatsapp.jpg">
-		</td>
-		<td id= "name">이름</td>
-		<td id="nameText"><input type="text" value="" id="serch" class="searchInput" placeholder="이름을 입력해주세요." style= "width: 400px; height: 50px;"></td>
-	</tr>
-	<tr>
-		<td id= "position">직급</td>
-		<td id="positionText"><input type="text" value="" id="serch" class="searchInput" placeholder="직급을 입력해주세요." style= "width: 400px; height: 50px;"></td>
-	</tr>
-	<tr>
-		<td id ="email">이메일</td>
-		<td id="emailText"><input type="text" value="" id="serch" class="searchInput" placeholder="이메일을 입력해주세요." style= "width: 400px; height: 50px;"></td>
-	</tr>
-	<tr>
-		<td id= "phoneNumber">전화번호</td>
-		<td id="PhoneNumberText"><input type="text" value="" id="serch" class="searchInput" placeholder="전화번호를 입력해주세요." style= "width: 400px; height: 50px;"></td>
-	</tr>
-	<tr>
-	<td colspan="2"><input id ="admin_detail" type= "button" value= "등록"> </td>
-	<td>
-	<input id= "cancel-button" type= "button" value= "취소"></td>
-	
-	</tr>
-	
-</table>`
 		}
+		
+		
 		
 }
 

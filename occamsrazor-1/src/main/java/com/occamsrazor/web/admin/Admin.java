@@ -7,11 +7,15 @@ import lombok.Setter;
 @Component
 @Getter @Setter
 public class Admin {
-private String name,position,email,phoneNumber,employNumber,passwd,profile,registerDate;
-	
+	private String  userid,passwd,name,ssn, addr, 
+	profile, email, phoneNumber, registerDate;
 @Override
-	public String toString() {
-		return String.format("%s,%s,%s,%s,%s,%s,%s,%s,"
-				, name,position,email,phoneNumber,employNumber,passwd,profile,registerDate);
-	}
+public String toString() {
+return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s", 
+		userid,passwd,name,ssn, addr,profile, email, phoneNumber, registerDate);
+}
+public void setEmployNumber(String createEmployNumber) {
+	// TODO Auto-generated method stub
+	
+}
 }

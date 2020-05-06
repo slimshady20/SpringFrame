@@ -10,7 +10,7 @@ public interface AdminService {
 
 	public List<Admin> findAll();
 
-	public Admin findOne(String employNumber);
+	public Admin findOne(String userid);
 
 	public void modify(Admin admin);
 

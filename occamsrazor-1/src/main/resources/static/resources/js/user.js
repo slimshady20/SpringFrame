@@ -6,6 +6,7 @@ user =	(() => {
 	let admin_vue
 	let init = () => {
 		admin_vue = `/resources/vue/admin_vue.js`
+		
 		onCreate()
 	}  
 	let onCreate = () =>{
@@ -68,7 +69,6 @@ user =	(() => {
 	    		 e.preventDefault()
 	    
 	    	 })
-	    	 
 	    	 
 		    
 	     })

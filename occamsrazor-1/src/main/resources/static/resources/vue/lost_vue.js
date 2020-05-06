@@ -1,6 +1,5 @@
-"user Strict"
-
-var userVue ={
+"use Strict"
+var lostVue ={
 		detail: ()=>{
 			return `<div id="content_container">
 				<table>
@@ -16,45 +15,35 @@ var userVue ={
 						</td>
 						<td class="userlabel">아이디</td>
 						<td class="input">
-							<p id="userId"></p>
+							<p id="lostid"></p>
 						</td>
 					</tr>
 					<tr>
 						<td class="userlabel">이름</td>
 						<td class="input">
-							<p id="userName"></p>
+							<p id="name"></p>
 						</td>
 					</tr>
-					<tr>
-						<td class="userlabel">주민번호</td>
-						<td class="input">
-							<p id="userSSN"></p>
-						</td>
-					</tr>
-					<tr>
+		
+						<tr>
 						<td class="userlabel">주소</td>
 						<td class="input">
-							<p id="userAddr"></p>
+							<p id="date"></p>
 						</td>
 					</tr>
 					<tr>
 						<td class="userlabel">이메일</td>
 						<td class="input">
-							<p id="userEmail"></p>
+							<p id="classification"></p>
 						</td>
 					</tr>
 					<tr>
 						<td class="userlabel">전화번호</td>
 						<td class="input">
-							<p id="userPhoneNumber"></p>
+							<p id="location"></p>
 						</td>
 					</tr>
-					<tr>
-						<td class="userlabel">가입일</td>
-						<td class="input">
-							<p id="registerDate"></p>
-						</td>
-					</tr>
+					
 				</table>
 			</div>`
 		}
